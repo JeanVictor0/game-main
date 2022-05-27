@@ -7,14 +7,18 @@ client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
 });
 
-client.on('ready', (msg) => {
+client.on('ready', () => {
     console.log('Client is ready!');
 
-    if (msg.body === '!ping') {
-        msg.reply('Pong')
+});
+
+client.on('message', msg => {
+
+    console.log(msg)
+
+    if (msg.body == '!ping') {
+        msg.reply('pong');
     }
-
-
 });
 
 client.initialize();
