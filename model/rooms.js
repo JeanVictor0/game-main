@@ -7,7 +7,7 @@ class rooms {
         }
 
     cacheGame(game,host) {
-
+        return this.games
     }
 
     createRoom(game,host) {
@@ -15,26 +15,38 @@ class rooms {
         if (!runGame) {
             return false
         } else {
-            this.rooms[host] = {game,runGame}
-            this.games[game] = runGame
-            return runGame
+            this.rooms[host] = this.rooms.hasOwnProperty(host) ? this.rooms[host] : {game,runGame}
+            this.games[game] = this.games.hasOwnProperty(game) ? this.games[game] : runGame
+            return !this.rooms.hasOwnProperty(host)
         }
     }
 
-    joinRoom(host) {
-       return host in this.rooms
+    joinRoom(host,user) {
+       return host in this.rooms ? this.rooms[host].users = [...[user]] : false
     }
 
-    static deleteRoom(game,host) {
+    exitRoom(host, user){
+        try {
+            var newUsers = this.rooms[host].users.indexOf(user)
+            if (newUsers === -1){
+                return false
+            }
+            this.rooms[host].users = this.rooms[host].users.splice(newUsers) 
 
+        } catch (err) { 
+            return err
+        }
+    }
+
+    showRooms(){
+        return this.rooms
+    }
+
+    deleteRoom(game,host) {
+        // Ainda verei se usarei admin ou sera por votação
     }
 
 
 }
 
-const teste = new rooms()
 
-teste.createRoom('gartic','asda')
-console.log(teste.rooms)
-console.log(teste.games)
-teste.joinRoom('asda')

@@ -49,6 +49,10 @@ class gartic {
 
     }
 
+    static existCommand(){
+        
+    }
+
     rank(callback) {
 
     }
