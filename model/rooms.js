@@ -38,6 +38,10 @@ class rooms {
         }
     }
 
+    useCommand(key,command = {}){
+
+    }
+
     showRooms(){
         return this.rooms
     }
@@ -48,5 +52,7 @@ class rooms {
 
 
 }
+
+module.exports = rooms
 
 
