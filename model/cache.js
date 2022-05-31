@@ -1,0 +1,1 @@
+const cache = require('../libs/redis')

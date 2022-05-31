@@ -2,7 +2,7 @@
 class gartic {
     constructor(){
         this.users = {}
-        this.config = require('../config')
+        this.config = require('../../config')
     }
 
     join(host,callback){

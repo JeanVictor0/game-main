@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "config": "^3.3.7",
+    "fetch": "^1.1.0",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.16.6"
   }

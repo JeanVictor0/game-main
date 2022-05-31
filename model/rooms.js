@@ -1,4 +1,4 @@
-const games = require('../games/index')
+const games = require('./games/index')
 
 class rooms {
     constructor() {
@@ -42,6 +42,10 @@ class rooms {
 
     }
 
+    endGame(){
+        return {users: this.room.users, result: this.room.runGame.result }
+    }
+
     showRooms(){
         return this.rooms
     }
@@ -49,7 +53,6 @@ class rooms {
     deleteRoom(game,host) {
         // Ainda verei se usarei admin ou sera por votação
     }
-
 
 }
 

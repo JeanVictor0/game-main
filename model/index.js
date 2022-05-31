@@ -1,18 +1,7 @@
-const room = require('./rooms')
+const games = require('./rooms')
+const users = require('./user')
+const cache = require('./cache')
 
-var index = {
-    room: new room,
-
-    existCommand(command){
-        return typeof(this.room[command]) === 'function' ? true : false
-    },
-    
-    existCommandInGame(command) {
-        return typeof(this.room.game[command]) === 'function' ? true : false
-    }
-
-}
-
-module.exports = index
+module.exports = {games,users}
 
 
